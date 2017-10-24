@@ -1,18 +1,18 @@
-# BitsharesJS (bitsharesjs)
+# BitsharesJS (karmajs)
 
 Pure JavaScript Bitshares library for node.js and browsers. Can be used to construct, sign and broadcast transactions in JavaScript, and to easily obtain data from the blockchain via public apis.
 
 Most of this code was written by [jcalfee](https://github.com/jcalfee), my work was mostly just repackaging to a discrete npm package.
 
-[![npm version](https://img.shields.io/npm/v/bitsharesjs.svg?style=flat-square)](https://www.npmjs.com/package/bitsharesjs)
-[![npm downloads](https://img.shields.io/npm/dm/bitsharesjs.svg?style=flat-square)](https://www.npmjs.com/package/bitsharesjs)
+[![npm version](https://img.shields.io/npm/v/karmajs.svg?style=flat-square)](https://www.npmjs.com/package/karmajs)
+[![npm downloads](https://img.shields.io/npm/dm/karmajs.svg?style=flat-square)](https://www.npmjs.com/package/karmajs)
 
 
 ## Setup
 
 This library can be obtained through npm:
 ```
-npm install bitsharesjs
+npm install karmajs
 ```
 
 ## Usage
@@ -56,7 +56,7 @@ The ChainStore has several useful methods to retrieve, among other things, objec
 
 ```
 import {Apis} from "karmajs-ws";
-var {ChainStore} = require("bitsharesjs");
+var {ChainStore} = require("karmajs");
 
 Apis.instance("wss://bitshares.openledger.info/ws", true).init_promise.then((res) => {
     console.log("connected to:", res[0].network);
@@ -80,7 +80,7 @@ The ECC library contains all the crypto functions for private and public keys as
 As a quick example, here's how to generate a new private key from a seed (a brainkey for example):
 
 ```
-var {PrivateKey, key} = require("bitsharesjs");
+var {PrivateKey, key} = require("karmajs");
 
 let seed = "THIS IS A TERRIBLE BRAINKEY SEED WORD SEQUENCE";
 let pkey = PrivateKey.fromSeed( key.normalize_brainKey(seed) );
