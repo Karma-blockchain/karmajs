@@ -1,6 +1,6 @@
 import { Aes, PrivateKey, PublicKey, Address } from "../../lib";
 import assert from "assert";
-import {ChainConfig} from "bitsharesjs-ws";
+import {ChainConfig} from "karmajs-ws";
 
 var test = function(key) {
     describe("KeyFormats", function() {

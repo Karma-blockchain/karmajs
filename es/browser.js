@@ -6,4 +6,4 @@ module.exports = {
     TransactionBuilder: require("./chain/src/TransactionBuilder"),
     Login: require("./chain/src/AccountLogin"),
     bitshares_ws: require("karmajs-ws")
-}
+};

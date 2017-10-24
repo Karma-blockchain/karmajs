@@ -1,5 +1,5 @@
 import assert from "assert";
-import {Apis, ChainConfig} from "bitsharesjs-ws";
+import {Apis, ChainConfig} from "karmajs-ws";
 import { ChainStore } from "../../lib";
 
 var coreAsset;
@@ -8,7 +8,7 @@ describe("ChainStore", () => {
     // Connect once for all tests
     before(function() {
         /* use wss://bitshares.openledger.info/ws if no local node is available */
-        return Apis.instance("wss://bitshares.openledger.info/ws", true).init_promise.then(function (result) {
+        return Apis.instance("ws://karma.graphenelab.org:8090", true).init_promise.then(function (result) {
             coreAsset = result[0].network.core_asset;
             return ChainStore.init();
         });

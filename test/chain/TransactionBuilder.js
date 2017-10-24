@@ -1,5 +1,5 @@
 import assert from "assert";
-import {Apis} from "bitsharesjs-ws";
+import {Apis} from "karmajs-ws";
 import { TransactionBuilder } from "../../lib";
 
 
