@@ -1,6 +1,6 @@
 {
   "name": "karmajs",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Pure JavaScript Karma library for node.js and browsers.",
   "browser": {
     "ws": false,
