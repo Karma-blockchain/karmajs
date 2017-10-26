@@ -134,9 +134,13 @@ var TransactionBuilder = function () {
 
         return new Promise(function (resolve, reject) {
 
+            //console.log('gltest_1 0');
+
             if (_this2.tr_buffer) {
                 throw new Error("already finalized");
             }
+
+            //console.log('gltest_1 1');
 
             resolve(Apis.instance().db_api().exec("get_objects", [["2.1.0"]]).then(function (r) {
                 head_block_time_string = r[0].time;
@@ -152,6 +156,7 @@ var TransactionBuilder = function () {
                         op[1].finalize();
                     }
                 }
+                console.log('gltest_1 2');
                 _this2.tr_buffer = ops.transaction.toBuffer(_this2);
             }));
         });
