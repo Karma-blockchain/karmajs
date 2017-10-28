@@ -261,6 +261,13 @@ var TransactionBuilder = function () {
                         requiresReview = true;
                         extraReview = 60 * 60 * 24 * 13; // Make the review period 2 weeks total
                         break;
+
+                    case 44:
+                    case 45:
+                    case 46:
+                        // credit
+                        key = "borrower";
+                        break;
                 }
                 if (key in op.op[1] && op.op[1][key] === COMMITTE_ACCOUNT) {
                     requiresReview = true;
@@ -459,7 +466,8 @@ var TransactionBuilder = function () {
         var tr_object = ops.signed_transaction.toObject(this);
         //DEBUG console.log('... tr_object',tr_object)
         return Apis.instance().db_api().exec("get_required_signatures", [tr_object, available_keys]).then(function (required_public_keys) {
-            //DEBUG console.log('... get_required_signatures',required_public_keys)
+            //DEBUG
+            console.log('... get_required_signatures', required_public_keys);
             return required_public_keys;
         });
     };
@@ -515,6 +523,8 @@ var TransactionBuilder = function () {
                 private_key = _signer_private_keys$[0],
                 public_key = _signer_private_keys$[1];
 
+
+            console.log("Buffer:", Buffer.concat([new Buffer(chain_id, 'hex'), this.tr_buffer]).toString('hex'));
             var sig = Signature.signBuffer(Buffer.concat([new Buffer(chain_id, 'hex'), this.tr_buffer]), private_key, public_key);
             this.signatures.push(sig.toBuffer());
         }

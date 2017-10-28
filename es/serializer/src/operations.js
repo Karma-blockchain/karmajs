@@ -596,42 +596,27 @@ export var asset_claim_fees = new Serializer("asset_claim_fees", { fee: asset,
     amount_to_claim: asset,
     extensions: set(future_extensions) });
 
-export var credit_request_operation = new Serializer("credit_request_operation", { fee: asset,
-    from: protocol_id_type("account"),
-    to: protocol_id_type("account"),
-    amount: asset,
-    memo: optional(memo_data),
-    extensions: set(future_extensions) });
+export var credit_request_operation_ = new Serializer("credit_request_operation_", {
+    fee: asset,
+    borrower: protocol_id_type("account"),
+    loan_asset: asset,
+    loan_memo: string,
+    deposit_asset: asset,
+    loan_persent: uint32,
+    loan_period: uint32
+});
 
-export var credit_approve_operation = new Serializer("credit_approve_operation", { fee: asset,
-    from: protocol_id_type("account"),
-    to: protocol_id_type("account"),
-    amount: asset,
-    memo: optional(memo_data),
-    extensions: set(future_extensions) });
+export var credit_request_operation = new Serializer("credit_request_operation", {
+    fee: asset,
+    borrower: protocol_id_type("account"),
+    loan_asset: asset,
+    loan_memo: string,
+    deposit_asset: asset,
+    loan_persent: string,
+    loan_period: uint32
+});
 
-export var credit_request_cancel_operation = new Serializer("credit_request_cancel_operation", { fee: asset,
-    from: protocol_id_type("account"),
-    to: protocol_id_type("account"),
-    amount: asset,
-    memo: optional(memo_data),
-    extensions: set(future_extensions) });
-
-export var comment_credit_request_operation = new Serializer("comment_credit_request_operation", { fee: asset,
-    from: protocol_id_type("account"),
-    to: protocol_id_type("account"),
-    amount: asset,
-    memo: optional(memo_data),
-    extensions: set(future_extensions) });
-
-export var settle_credit_operation = new Serializer("settle_credit_operation", { fee: asset,
-    from: protocol_id_type("account"),
-    to: protocol_id_type("account"),
-    amount: asset,
-    memo: optional(memo_data),
-    extensions: set(future_extensions) });
-
-operation.st_operations = [transfer, limit_order_create, limit_order_cancel, call_order_update, fill_order, account_create, account_update, account_whitelist, account_upgrade, account_transfer, asset_create, asset_update, asset_update_bitasset, asset_update_feed_producers, asset_issue, asset_reserve, asset_fund_fee_pool, asset_settle, asset_global_settle, asset_publish_feed, witness_create, witness_update, proposal_create, proposal_update, proposal_delete, withdraw_permission_create, withdraw_permission_update, withdraw_permission_claim, withdraw_permission_delete, committee_member_create, committee_member_update, committee_member_update_global_parameters, vesting_balance_create, vesting_balance_withdraw, worker_create, custom, assert, balance_claim, override_transfer, transfer_to_blind, blind_transfer, transfer_from_blind, asset_settle_cancel, asset_claim_fees, credit_request_operation, credit_approve_operation, credit_request_cancel_operation, comment_credit_request_operation, settle_credit_operation];
+operation.st_operations = [transfer, limit_order_create, limit_order_cancel, call_order_update, fill_order, account_create, account_update, account_whitelist, account_upgrade, account_transfer, asset_create, asset_update, asset_update_bitasset, asset_update_feed_producers, asset_issue, asset_reserve, asset_fund_fee_pool, asset_settle, asset_global_settle, asset_publish_feed, witness_create, witness_update, proposal_create, proposal_update, proposal_delete, withdraw_permission_create, withdraw_permission_update, withdraw_permission_claim, withdraw_permission_delete, committee_member_create, committee_member_update, committee_member_update_global_parameters, vesting_balance_create, vesting_balance_withdraw, worker_create, custom, assert, balance_claim, override_transfer, transfer_to_blind, blind_transfer, transfer_from_blind, asset_settle_cancel, asset_claim_fees, credit_request_operation_, credit_request_operation];
 
 export var transaction = new Serializer("transaction", { ref_block_num: uint16,
     ref_block_prefix: uint32,
