@@ -611,7 +611,7 @@ export var credit_request_operation = new Serializer("credit_request_operation",
     borrower: protocol_id_type("account"),
     loan_asset: asset,
     loan_period: uint32,
-    loan_persent: uint16,
+    loan_persent: uint32,
     loan_memo: string,
     deposit_asset: asset
 });
