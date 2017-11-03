@@ -590,7 +590,7 @@ function _broadcast(was_broadcast_callback) {
             return;
         }).catch(function (error) {
             // console.log may be redundant for network errors, other errors could occur
-            console.log(error);
+            //console.log(error);
             var message = error.message;
             if (!message) {
                 message = "";
