@@ -125,7 +125,7 @@ var ChainStore = function () {
             if (_this.subscribed) return resolve();
             var db_api = Apis.instance().db_api();
             if (!db_api) {
-                return reject(new Error("Api not found, please initialize the api instance before calling the ChainStore"));
+                return reject(new Error("2Api not found, please initialize the api instance before calling the ChainStore"));
             }
             return db_api.exec("get_objects", [["2.1.0"]]).then(function (optional_objects) {
                 //if(DEBUG) console.log("... optional_objects",optional_objects ? optional_objects[0].id : null)

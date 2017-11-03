@@ -65,7 +65,6 @@ var Signature = function () {
     */
     Signature.signBuffer = function signBuffer(buf, private_key) {
         var _hash = sha256(buf);
-        console.log('Hash:', _hash.toString('hex'));
         return Signature.signBufferSha256(_hash, private_key);
     };
 
