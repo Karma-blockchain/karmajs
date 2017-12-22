@@ -1,6 +1,6 @@
-# BitsharesJS (karmajs)
+# KarmaJS (based on bitsharesjs)
 
-Pure JavaScript Bitshares library for node.js and browsers. Can be used to construct, sign and broadcast transactions in JavaScript, and to easily obtain data from the blockchain via public apis.
+Pure JavaScript Karma library for node.js and browsers. Can be used to construct, sign and broadcast transactions in JavaScript, and to easily obtain data from the blockchain via public apis.
 
 Most of this code was written by [jcalfee](https://github.com/jcalfee), my work was mostly just repackaging to a discrete npm package.
 
@@ -42,7 +42,7 @@ The auths object should contain the auth arrays from the account object. An exam
 ```
 {
     active: [
-        ["GPH5Abm5dCdy3hJ1C5ckXkqUH2Me7dXqi9Y7yjn9ACaiSJ9h8r8mL", 1]
+        ["KRM5Abm5dCdy3hJ1C5ckXkqUH2Me7dXqi9Y7yjn9ACaiSJ9h8r8mL", 1]
     ]
 }
 ```
@@ -58,7 +58,7 @@ The ChainStore has several useful methods to retrieve, among other things, objec
 import {Apis} from "karmajs-ws";
 var {ChainStore} = require("karmajs");
 
-Apis.instance("wss://bitshares.openledger.info/ws", true).init_promise.then((res) => {
+Apis.instance("wss://krmapi.graphenelab.org", true).init_promise.then((res) => {
     console.log("connected to:", res[0].network);
     ChainStore.init().then(() => {
         ChainStore.subscribe(updateState);
