@@ -93,8 +93,14 @@ ChainTypes.operations = {
     transfer_from_blind: 41,
     asset_settle_cancel: 42,
     asset_claim_fees: 43,
-    credit_request_operation_: 44,
-    credit_request_operation: 45
+    asset_claim_fees__: 44,
+    asset_claim_fees___: 45,
+    credit_request_operation_: 46,
+    credit_request_operation: 47,
+    credit_approve_operation: 48,
+    credit_request_cancel_operation: 49,
+    comment_credit_request_operation: 50,
+    settle_credit_operation: 51
 };
 
 export default ChainTypes;

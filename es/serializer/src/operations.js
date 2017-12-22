@@ -266,7 +266,26 @@ export var account_update = new Serializer("account_update", { fee: asset,
     owner: optional(authority),
     active: optional(authority),
     new_options: optional(account_options),
-    extensions: set(future_extensions) });
+    extensions: set(future_extensions),
+    login: optional(string),
+    email: optional(string),
+    firstName: optional(string),
+    lastName: optional(string),
+    facebook: optional(string),
+    mobile: optional(string),
+    taxResidence: optional(string),
+    bankName: optional(string),
+    bankSwift: optional(string),
+    bankAccount: optional(string),
+    bankBenificiary: optional(string),
+    about: optional(string),
+    companyName: optional(string),
+    companyActivity: optional(string),
+    companyVat: optional(string),
+    companyWebsite: optional(string),
+    companyYoutube: optional(string),
+    companyPdf: optional(string)
+});
 
 export var account_whitelist = new Serializer("account_whitelist", { fee: asset,
     authorizing_account: protocol_id_type("account"),
@@ -616,7 +635,89 @@ export var credit_request_operation = new Serializer("credit_request_operation",
     deposit_asset: asset
 });
 
-operation.st_operations = [transfer, limit_order_create, limit_order_cancel, call_order_update, fill_order, account_create, account_update, account_whitelist, account_upgrade, account_transfer, asset_create, asset_update, asset_update_bitasset, asset_update_feed_producers, asset_issue, asset_reserve, asset_fund_fee_pool, asset_settle, asset_global_settle, asset_publish_feed, witness_create, witness_update, proposal_create, proposal_update, proposal_delete, withdraw_permission_create, withdraw_permission_update, withdraw_permission_claim, withdraw_permission_delete, committee_member_create, committee_member_update, committee_member_update_global_parameters, vesting_balance_create, vesting_balance_withdraw, worker_create, custom, assert, balance_claim, override_transfer, transfer_to_blind, blind_transfer, transfer_from_blind, asset_settle_cancel, asset_claim_fees, credit_request_operation_, credit_request_operation];
+export var credit_approve_operation = new Serializer("credit_approve_operation", {
+    fee: asset,
+    creditor: protocol_id_type("account"),
+    credit_memo: string,
+    credit_request_uuid: string
+});
+
+export var credit_request_cancel_operation = new Serializer("credit_request_cancel_operation", {
+    fee: asset,
+    borrower: protocol_id_type("account"),
+    borrow_memo: string,
+    credit_request_uuid: string
+});
+
+export var comment_credit_request_operation = new Serializer("comment_credit_request_operation", {
+    fee: asset,
+    creditor: protocol_id_type("account"),
+    credit_memo: string,
+    credit_request_uuid: string
+});
+
+export var settle_credit_operation = new Serializer("settle_credit_operation", {
+    fee: asset,
+    borrower: protocol_id_type("account"),
+    credit_request_uuid: string
+});
+
+operation.st_operations = [transfer, limit_order_create, limit_order_cancel, call_order_update, fill_order, account_create, account_update, account_whitelist, account_upgrade, account_transfer, asset_create, asset_update, asset_update_bitasset, asset_update_feed_producers, asset_issue, asset_reserve, asset_fund_fee_pool, asset_settle, asset_global_settle, asset_publish_feed, witness_create, witness_update, proposal_create, proposal_update, proposal_delete, withdraw_permission_create, withdraw_permission_update, withdraw_permission_claim, withdraw_permission_delete, committee_member_create, committee_member_update, committee_member_update_global_parameters, vesting_balance_create, vesting_balance_withdraw, worker_create, custom, assert, balance_claim, override_transfer, transfer_to_blind, blind_transfer, transfer_from_blind, asset_settle_cancel, asset_claim_fees, asset_claim_fees, asset_claim_fees, credit_request_operation_, credit_request_operation, credit_approve_operation, credit_request_cancel_operation, comment_credit_request_operation, settle_credit_operation];
+
+/*
+transfer_operation,
+limit_order_create_operation,
+limit_order_cancel_operation,
+call_order_update_operation,
+fill_order_operation,           // VIRTUAL
+account_create_operation,
+account_update_operation,
+account_whitelist_operation,
+account_upgrade_operation,
+account_transfer_operation,
+asset_create_operation,
+asset_update_operation,
+asset_update_bitasset_operation,
+asset_update_feed_producers_operation,
+asset_issue_operation,
+asset_reserve_operation,
+asset_fund_fee_pool_operation,
+asset_settle_operation,
+asset_global_settle_operation,
+asset_publish_feed_operation,
+witness_create_operation,
+witness_update_operation,
+proposal_create_operation,
+proposal_update_operation,
+proposal_delete_operation,
+withdraw_permission_create_operation,
+withdraw_permission_update_operation,
+withdraw_permission_claim_operation,
+withdraw_permission_delete_operation,
+committee_member_create_operation,
+committee_member_update_operation,
+committee_member_update_global_parameters_operation,
+vesting_balance_create_operation,
+vesting_balance_withdraw_operation,
+worker_create_operation,
+custom_operation,
+assert_operation,
+balance_claim_operation,
+override_transfer_operation,
+transfer_to_blind_operation,
+blind_transfer_operation,
+transfer_from_blind_operation,
+asset_settle_cancel_operation,  // VIRTUAL
+asset_claim_fees_operation,
+fba_distribute_operation,       // VIRTUAL
+bid_collateral_operation,
+execute_bid_operation,           // VIRTUAL
+credit_request_operation,
+credit_approve_operation,
+credit_request_cancel_operation,
+comment_credit_request_operation,
+settle_credit_operation
+*/
 
 export var transaction = new Serializer("transaction", { ref_block_num: uint16,
     ref_block_prefix: uint32,
