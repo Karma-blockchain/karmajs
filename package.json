@@ -1,6 +1,6 @@
 {
   "name": "karmajs",
-  "version": "0.2.46",
+  "version": "0.2.47",
   "description": "Pure JavaScript Karma library for node.js and browsers.",
   "browser": {
     "ws": false,
@@ -22,6 +22,7 @@
     "browserify": "cross-env NODE_ENV=production browserify --full-paths dist/browser.js --standalone karma_js -o build/karmajs.js -d",
     "postbrowserify": "cross-env NODE_ENV=production uglifyjs --compress --mangle --sequences --drop_console --output build/karmajs.min.js -- build/karmajs.js",
     "prepublish": "npm run build",
+    "postinstall": "npm run build",
     "doc": "esdoc -c esdoc.json",
     "example:transfer": "babel-node examples/transfer",
     "example:chainStore": "babel-node examples/chainStore",
@@ -29,7 +30,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GrapheneLab/karmajs.git"
+    "url": "git+https://github.com/Karma-blockchain/karmajs.git"
   },
   "author": "GrapheneLab",
   "contributors": [
@@ -40,7 +41,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/GrapheneLab/karmajs/issues"
+    "url": "https://github.com/Karma-blockchain/karmajs/issues"
   },
   "engines": {
     "node": ">= 6.0.0"
